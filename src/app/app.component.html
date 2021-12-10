@@ -1,0 +1,52 @@
+<div class="contenido">
+
+    <tr *ngFor="let persona of personas">
+        <h1>Información del usuario: {{persona.name.first+' '+persona.name.last+' '+persona.name.title}}</h1>
+        <br>
+        <img class="img" src={{persona.picture.large}}>
+    </tr>
+    <br>
+
+    <ul class="list-group list-group-flush" *ngFor="let persona of personas">
+
+        <div class="row">
+            <div class="col">
+                <th scope="col">Nombre y apellido :</th>
+                <td>{{persona.name.first+' '+persona.name.last+' '+persona.name.title}}</td>
+                <br>
+
+                <th scope="col">Id :</th>
+                <td>{{persona.id.value}}</td>
+                <br>
+
+                <th scope="col">Edad :</th>
+                <td>{{persona.registered.age}}</td>
+                <br>
+
+                <th scope="col">Telefóno :</th>
+                <td>{{persona.cell}}</td>
+                <br>
+            </div>
+
+            <div class="col">
+                <th scope="col">Email :</th>
+                <td>{{persona.email}}</td>
+                <br>
+
+                <th scope="col">Ciudad :</th>
+                <td>{{persona.location.city}}</td>
+                <br>
+
+                <th scope="col">Código postal :</th>
+                <td>{{persona.location.postcode}}</td>
+                <br>
+
+                <th scope="col">País :</th>
+                <td>{{persona.location.country}}</td>
+            </div>
+        </div>
+
+    </ul>
+
+
+</div>
