@@ -15,4 +15,9 @@ export class PersonaService {
     let header = new HttpHeaders().set('Type.content','aplication/json')
     return this.http.get(this.url, {headers: header});
    }
+
+   getImagen(parametros:any){
+     const URL ='https://randomuser.me/api/'+ parametros.picture
+     return this.http.get(URL);
+   }
 }

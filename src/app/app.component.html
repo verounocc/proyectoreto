@@ -1,52 +1,85 @@
-<div class="contenido">
+<div class="contenedor">
+    <div class="contenido" id="perfil">
+        <tr *ngFor="let persona of personas">
+            <h1 class="h1">Información del usuario: {{persona.name.first+' '+persona.name.last+' '+persona.name.title}}
+            </h1>
+        </tr>
 
-    <tr *ngFor="let persona of personas">
-        <h1>Información del usuario: {{persona.name.first+' '+persona.name.last+' '+persona.name.title}}</h1>
-        <br>
-        <img class="img" src={{persona.picture.large}}>
-    </tr>
-    <br>
 
-    <ul class="list-group list-group-flush" *ngFor="let persona of personas">
+        <div id="bloque1">
+            <table >
+                <ul class="list-group list-group-flush" *ngFor="let persona of personas">
+                    <th scope="col">
+                        <mat-icon class="icon">account_circle</mat-icon>Nombres y Apellidos
+                    </th>
+                    <td>{{persona.name.first+' '+persona.name.last+' '+persona.name.title}}</td>
+                    <br>
 
-        <div class="row">
-            <div class="col">
-                <th scope="col">Nombre y apellido :</th>
-                <td>{{persona.name.first+' '+persona.name.last+' '+persona.name.title}}</td>
+                    <th scope="col">
+                        <mat-icon class="icon">info</mat-icon>Codigo de Usuario
+                    </th>
+                    <td>{{persona.id.value}}</td>
+                    <br>
+
+                    <th scope="col">
+                        <mat-icon class="icon">portrait</mat-icon>Edad
+                    </th>
+                    <td>{{persona.dob.age}} años</td>
+                    <br>
+
+                    <th scope="col">
+                        <mat-icon class="icon">phone</mat-icon> N° de Celular
+                    </th>
+                    <td>{{persona.cell}}</td>
+                    <br>
+
+                    <th scope="col">
+                        <mat-icon class="icon">perm_identity</mat-icon>Sexo
+                    </th>
+                    <td>{{persona.gender}}</td>
+                    <br>
+                    <th scope="col">
+                        <mat-icon class="icon">email</mat-icon>Correo
+                    </th>
+                    <td>{{persona.email}}</td>
+                    <br>
+
+                    <th scope="col">
+                        <mat-icon class="icon">location_city</mat-icon>Ciudad
+                    </th>
+                    <td>{{persona.location.city}}</td>
+                    <br>
+
+                    <th scope="col">
+                        <mat-icon class="icon">pin_drop</mat-icon>Codigo postal
+                    </th>
+                    <td>{{persona.location.postcode}}</td>
+                    <br>
+
+                    <th scope="col">
+                        <mat-icon class="icon">person_pin_circle</mat-icon>Pais
+                    </th>
+                    <td>{{persona.location.country}}</td>
+                </ul>
                 <br>
-
-                <th scope="col">Id :</th>
-                <td>{{persona.id.value}}</td>
-                <br>
-
-                <th scope="col">Edad :</th>
-                <td>{{persona.registered.age}}</td>
-                <br>
-
-                <th scope="col">Telefóno :</th>
-                <td>{{persona.cell}}</td>
-                <br>
-            </div>
-
-            <div class="col">
-                <th scope="col">Email :</th>
-                <td>{{persona.email}}</td>
-                <br>
-
-                <th scope="col">Ciudad :</th>
-                <td>{{persona.location.city}}</td>
-                <br>
-
-                <th scope="col">Código postal :</th>
-                <td>{{persona.location.postcode}}</td>
-                <br>
-
-                <th scope="col">País :</th>
-                <td>{{persona.location.country}}</td>
-            </div>
+                <button type="button" class="btn btn-secondary" onclick="document.location.reload();">Actualizar</button>
+            </table>
         </div>
 
-    </ul>
+        <div id="bloque2">
+            <tr *ngFor="let persona of personas">
+                <img class="img" src={{persona.picture.large}}>
+                <br>
+                <div class="google">
+                    <google-map width="350px" height="350px" [center]="position">
+                        <map-marker [position]="position" [label]="label">
+                        </map-marker>
+                    </google-map>
 
+                </div>
 
+            </tr>
+        </div>
+
+    </div>
 </div>
